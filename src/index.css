@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+
+:root{
+  --bg: #800000
+}
+
+@import "tailwindcss";
+body{
+    background-color: #EEEEEE;
+}
+
+
+/* this animation is only for my background images*/
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-gradient-circle {
+  background: linear-gradient(270deg, #ff9a9e, #fad0c4, #a18cd1, #ff9a9e);
+  background-size: 800% 800%;
+  animation: gradientAnimation 15s ease infinite;
+  border-radius: 50%; 
+  width: 300px;
+  height: 300px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  border: 2px solid rgba(255,255,255,0.2); 
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.animated-gradient-circle {
+  /* previous styles */
+  animation: gradientAnimation 15s ease infinite, float 6s ease-in-out infinite;
+}
+
+
+
+
+
+
+
+/* pulse keyframes */
+@keyframes radialanimation {
+  0% {
+    transform: translate(-50%, -50%) scale(0.45);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.2); /* ~100px from 30px */
+    opacity: 0;
+  }
+}
+
+/* expanding radial background */
+.timeline-pulse {
+  position: absolute;
+  top: 50%;
+  left: 20px;              /* default, can override inline */
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(242,201,76,0) 40%, rgba(128,0,0,0.5) 100%);
+  transform: translate(-50%, -50%);
+  animation: radialanimation 2.2s cubic-bezier(.26,1.04,.54,1) infinite;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* inner small solid dot with white border */
+.timeline-dot {
+  position: absolute;
+  top: 50%;
+  left: 20px;              /* same center as pulse */
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #800000;
+  border: 5px solid white;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* optional: staggered delay for alternating steps */
+.timeline-pulse.delay {
+  animation-delay: 0.9s;
+}
+
+
+/* this code for my progress bar  */
+
+.custom-progress .CircularProgressbar-path {
+  stroke-width: 2px !important; /* thinner line */
+}
+
+.custom-progress .CircularProgressbar-trail {
+  stroke-width: 2px !important; /* thinner gray trail */
+}
+
+/* this code is for my swiper js bullets */
+
+/* Put at the end of src/index.css (or your global stylesheet) */
+
+/* Inactive bullets: pure black */
+.swiper-pagination-bullet {
+  background: #000 !important;   
+  opacity: 1 !important;         
+  width: 10px;                   
+  height: 10px;
+  margin: 0 8px;                 
+  border-radius: 9999px;
+  transition: transform .18s, background .18s;
+}
+
+/* Active bullet: maroon (#800000) */
+.swiper-pagination-bullet-active {
+  background: #800000 !important; 
+  transform: scale(1.2);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+
+
+
+/* Make pagination flow in document (not absolute) and add space */
+.swiper {
+  position: relative; /* ensure container positioning is stable */
+}
+
+.swiper .swiper-pagination {
+  position: static !important; 
+  margin-top: 1rem;           
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 0px;
+}
+
+.swiper .swiper-pagination-bullet {
+  width: 7px;
+  height: 7px;
+  background: #000;
+  opacity: 1;
+  border-radius: 9999px;
+}
+.swiper .swiper-pagination-bullet-active {
+  background: #800000;
+  transform: scale(1.15);
+}
+.swiper-pagination-bullet {
+  width: 7px;   
+  height: 7px;
+  background: #000;  
+  opacity: 1;
+  transition: transform .25s ease, background .25s ease;
+  border-radius: 9999px;
+}
+.swiper-pagination-bullet-active {
+  width: 10px !important;   
+  height: 10px !important;
+  background: #800000 !important; 
+  transform: scale(1.2);   
+}
+
+
+/* =========================
+   Swiper pagination overlay
+   Paste at the end of src/index.css
+   ========================= */
+.swiper {
+  position: relative;
+}
+
+/* pagination shows on top of slide (overlay), centered */
+.swiper .swiper-pagination {
+  position: absolute !important;
+  bottom: 200px;
+  top: 3rem;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: auto;
+  z-index: 80;
+  margin: 0;
+  padding: 0;
+}
+
+/* inactive bullet */
+.swiper .swiper-pagination-bullet {
+  width: 9px;
+  height: 9px;
+  background: #e8ebee;   
+  opacity: 1;
+  margin: 0 8px;
+  
+  border-radius: 9999px;
+  transition: transform .22s ease, background .22s ease;
+  box-shadow: 2px 2px 2px rgba(250, 244, 244, 0.922);
+}
+
+/* active bullet */
+.swiper .swiper-pagination-bullet-active {
+  width: 14px !important;
+  height: 14px !important;
+  background: #800000 !important; /* maroon */
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(128,0,0,0.18);
+}
+
+/* this animation is for my contact us page image */
+.animate-floating{
+  animation: floatUpdown 2s ease-in-out infinite;
+}
+
+@keyframes floatUpdown {
+  0% , 100%{
+    transform: translateY(0px);
+  }
+  50%{
+    transform: translateY(-20px);
+  }
+}
+
+/* this anim */
