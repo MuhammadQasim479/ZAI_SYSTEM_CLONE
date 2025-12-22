@@ -1,7 +1,7 @@
 import React from 'react'
 import Contactaddress from '../components/Contactus/Contactaddress'
-import Contactform from '../components/Contactus/contactform'
 import GetinTouch from '../components/Contactus/GetinTouch'
+import Contactform from '../components/Contactus/Contactform'
 
 const Contactus = () => {
   return (
@@ -14,4 +14,4 @@ const Contactus = () => {
   )
 }
 
-export default Contactus
+export default Contactus;
