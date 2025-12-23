@@ -28,7 +28,7 @@ import zia_video from "../../assets/video/zia_video.mp4"
 const Bgvideo = () => {
   return (
     <div className="w-full overflow-x-hidden">
-      <div className="w-full pt-20 sm:pt-0 h-[55vh] sm:h-[62vh] md:h-[70vh] lg:h-[90vh]">
+      <div className="w-full pt-20 sm:pt-0 h-[48vh] sm:h-[62vh] md:h-[70vh] lg:h-[90vh]">
         <video
           src={zia_video}
           autoPlay
